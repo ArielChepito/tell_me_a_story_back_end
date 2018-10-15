@@ -26,7 +26,7 @@
 <div class="form-group">
     {!! Form::label('Photo', 'Photo:') !!}
     <br>
-    <img width='150px' width='150px' src= '{!! $section->url !!}'>
+    <img width='150px' width='150px' src= 'images/{!! $section->url !!}'>
 </div>
 
 <!-- Created At Field -->

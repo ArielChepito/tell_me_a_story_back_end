@@ -14,7 +14,7 @@
             <td>{!! $section->story->name !!}</td>
             <td>{!! $section->name !!}</td>
             <td>{!! $section->description !!}</td>
-            <td><img width='80px' width='80px' src= '{!! $section->url !!}'> </td>
+            <td><img width='80px' width='80px' src= 'images/{!! $section->url !!}'> </td>
             <td>
                 {!! Form::open(['route' => ['sections.destroy', $section->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

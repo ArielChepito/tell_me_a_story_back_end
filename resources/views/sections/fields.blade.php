@@ -19,7 +19,7 @@
 <!-- Url Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('url', 'Url:') !!}
-    {!! Form::text('url', null, ['class' => 'form-control']) !!}
+    {!! Form::file('url', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -62,6 +62,19 @@ class sectionController extends AppBaseController
     {
         $input = $request->all();
 
+
+        $file = $request->file('url');
+        if($file != null)
+        {
+           
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url'] = $name;
+            $file->move($destionationPath,$name);
+
+        }
+
         $section = $this->sectionRepository->create($input);
 
         Flash::success('Section saved successfully.');
@@ -69,6 +82,14 @@ class sectionController extends AppBaseController
         return redirect(route('sections.index'));
     }
 
+
+
+    public static function quickRandom($length = 16)
+    {
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
+    }
     /**
      * Display the specified section.
      *
@@ -102,6 +123,8 @@ class sectionController extends AppBaseController
 
         $section = $this->sectionRepository->findWithoutFail($id);
 
+
+        
         if (empty($section)) {
             Flash::error('Section not found');
 
@@ -122,6 +145,19 @@ class sectionController extends AppBaseController
     public function update($id, UpdatesectionRequest $request)
     {
         $section = $this->sectionRepository->findWithoutFail($id);
+
+        $file = $request->file('url');
+        if($file != null)
+        {
+            
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input ->url = $name;
+            $file->move($destionationPath,$name);
+
+        }
+
 
         if (empty($section)) {
             Flash::error('Section not found');
