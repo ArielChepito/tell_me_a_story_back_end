@@ -2,7 +2,8 @@
     <thead>
         <tr>
             <th>Name</th>
-        <th>Id Category</th>
+            <th> Category</th>
+            <th> Photo</th>
             <th colspan="2">Action</th>
         </tr>
     </thead>
@@ -11,6 +12,8 @@
         <tr>
             <td>{!! $story->name !!}</td>
             <td>{!! $story->category->name !!}</td>
+            <td><img width='80px' width='80px' src= 'images/{!! $story->url !!}'> </td>
+
             <td>
                 {!! Form::open(['route' => ['stories.destroy', $story->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

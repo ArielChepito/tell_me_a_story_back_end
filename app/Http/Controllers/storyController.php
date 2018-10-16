@@ -68,8 +68,17 @@ class storyController extends AppBaseController
     public function store(CreatestoryRequest $request)
     {
         $input = $request->all();
-     //   return json_encode($input);
+        $file = $request->file('url');
+        if($file != null)
+        {
+           
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url'] = $name;
+            $file->move($destionationPath,$name);
 
+        }
         $story = $this->storyRepository->create($input);
 
         Flash::success('Story saved successfully.');
@@ -134,14 +143,26 @@ class storyController extends AppBaseController
     public function update($id, UpdatestoryRequest $request)
     {
         $story = $this->storyRepository->findWithoutFail($id);
+        $input = $request->all();
 
+        $file = $request->file('url');
+        if($file != null)
+        {
+           
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url'] = $name;
+            $file->move($destionationPath,$name);
+
+        }
         if (empty($story)) {
             Flash::error('Story not found');
 
             return redirect(route('stories.index'));
         }
 
-        $story = $this->storyRepository->update($request->all(), $id);
+        $story = $this->storyRepository->update($input, $id);
 
         Flash::success('Story updated successfully.');
 
@@ -170,5 +191,12 @@ class storyController extends AppBaseController
         Flash::success('Story deleted successfully.');
 
         return redirect(route('stories.index'));
+    }
+
+    public static function quickRandom($length = 16)
+    {
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
     }
 }

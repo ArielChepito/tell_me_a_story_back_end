@@ -32,7 +32,9 @@ class story extends Model
     public $fillable = [
         'name',
         'state',
-        'id_category'
+        'id_category',
+        'url',
+        
     ];
 
     /**
@@ -44,7 +46,8 @@ class story extends Model
         'id' => 'integer',
         'name' => 'string',
         'state' => 'integer',
-        'id_category' => 'integer'
+        'id_category' => 'integer',
+        'url' => 'string'
     ];
 
     /**

@@ -82,14 +82,6 @@ class sectionController extends AppBaseController
         return redirect(route('sections.index'));
     }
 
-
-
-    public static function quickRandom($length = 16)
-    {
-        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-        return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
-    }
     /**
      * Display the specified section.
      *
@@ -146,6 +138,8 @@ class sectionController extends AppBaseController
     {
         $section = $this->sectionRepository->findWithoutFail($id);
 
+        $input = $request->all();
+
         $file = $request->file('url');
         if($file != null)
         {
@@ -153,7 +147,7 @@ class sectionController extends AppBaseController
             $destionationPath = "images";
             $name = $this->quickRandom();
             $name .= ".png";
-            $input ->url = $name;
+            $input['url'] = $name;
             $file->move($destionationPath,$name);
 
         }
@@ -165,7 +159,7 @@ class sectionController extends AppBaseController
             return redirect(route('sections.index'));
         }
 
-        $section = $this->sectionRepository->update($request->all(), $id);
+        $section = $this->sectionRepository->update($input, $id);
 
         Flash::success('Section updated successfully.');
 
@@ -194,5 +188,12 @@ class sectionController extends AppBaseController
         Flash::success('Section deleted successfully.');
 
         return redirect(route('sections.index'));
+    }
+
+    public static function quickRandom($length = 16)
+    {
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
     }
 }

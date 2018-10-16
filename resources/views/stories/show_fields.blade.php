@@ -15,6 +15,13 @@
     {!! Form::label('Category', 'Category:') !!}
     <p>{!! $story->category->name !!}</p>
 </div>
+<!-- Url Field -->
+<div class="form-group">
+    {!! Form::label('Photo', 'Photo:') !!}
+    <br>
+    <img width='150px' width='150px' src= 'images/{!! $story->url !!}'>
+</div>
+
 
 <!-- Created At Field -->
 <div class="form-group">

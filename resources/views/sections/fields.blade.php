@@ -18,7 +18,7 @@
 
 <!-- Url Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('url', 'Url:') !!}
+    {!! Form::label('url', 'Photo:') !!}
     {!! Form::file('url', null, ['class' => 'form-control']) !!}
 </div>
 
