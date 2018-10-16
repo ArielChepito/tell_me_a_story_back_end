@@ -22,6 +22,14 @@
     {!! Form::file('url', null, ['class' => 'form-control']) !!}
 </div>
 
+
+<!-- Url Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('url', 'Audio:') !!}
+    {!! Form::file('audio_url', null, ['class' => 'form-control']) !!}
+</div>
+
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

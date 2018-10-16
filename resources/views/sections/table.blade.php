@@ -5,6 +5,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Url</th>
+        <th>Audio</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -15,6 +16,7 @@
             <td>{!! $section->name !!}</td>
             <td>{!! $section->description !!}</td>
             <td><img width='80px' width='80px' src= 'images/{!! $section->url !!}'> </td>
+            <td>{!! $section->audio_url !!}</td>
             <td>
                 {!! Form::open(['route' => ['sections.destroy', $section->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

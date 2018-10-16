@@ -33,7 +33,8 @@ class section extends Model
         'id_story',
         'name',
         'description',
-        'url'
+        'url',
+        'audio_url'
     ];
 
     /**
@@ -46,7 +47,8 @@ class section extends Model
         'id_story' => 'integer',
         'name' => 'string',
         'description' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'audio_url' => 'string',
     ];
 
     /**

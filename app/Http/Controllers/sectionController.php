@@ -75,6 +75,19 @@ class sectionController extends AppBaseController
 
         }
 
+        
+        $file = $request->file('audio_url');
+        if($file != null)
+        {
+            
+            $destionationPath = "audio";
+            $name = $this->quickRandom();
+            $name .= ".mp3";
+            $input['audio_url'] = $name;
+            $file->move($destionationPath,$name);
+
+        }
+
         $section = $this->sectionRepository->create($input);
 
         Flash::success('Section saved successfully.');
@@ -151,6 +164,20 @@ class sectionController extends AppBaseController
             $file->move($destionationPath,$name);
 
         }
+
+        $file = $request->file('audio_url');
+        if($file != null)
+        {
+            
+            $destionationPath = "audio";
+            $name = $this->quickRandom();
+            $name .= ".mp3";
+            $input['audio_url'] = $name;
+            $file->move($destionationPath,$name);
+
+        }
+
+
 
 
         if (empty($section)) {
