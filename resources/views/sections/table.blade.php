@@ -16,7 +16,7 @@
                  <td>{!! $section->story->name !!}</td>
 
             @else
-                <td>Sin Historia</td>
+                <td>Sin sub-menu</td>
 
             @endif
             <td>{!! $section->name !!}</td>
