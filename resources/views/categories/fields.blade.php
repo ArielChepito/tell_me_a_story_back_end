@@ -3,6 +3,11 @@
     {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'required' => '']) !!}
 </div>
+<!-- Url Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('url', 'Photo:') !!}
+    {!! Form::file('url', null, ['class' => 'form-control']) !!}
+</div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

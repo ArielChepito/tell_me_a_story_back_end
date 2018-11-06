@@ -57,6 +57,25 @@ class categoryController extends AppBaseController
     {
         $input = $request->all();
 
+
+          $file = $request->file('url');
+        if($file != null)
+        {
+
+              $this->validate($request, [
+            'url' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+            ]);
+               
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url'] = $name;
+            $file->move($destionationPath,$name);
+
+        }
+
+
+
         $category = $this->categoryRepository->create($input);
 
         Flash::success('Category saved successfully.');
@@ -115,6 +134,8 @@ class categoryController extends AppBaseController
     public function update($id, UpdatecategoryRequest $request)
     {
         $category = $this->categoryRepository->findWithoutFail($id);
+            $input = $request->all();
+
 
         if (empty($category)) {
             Flash::error('Category not found');
@@ -122,7 +143,26 @@ class categoryController extends AppBaseController
             return redirect(route('categories.index'));
         }
 
-        $category = $this->categoryRepository->update($request->all(), $id);
+        
+
+       $file = $request->file('url');
+            if($file != null)
+            {
+
+                  $this->validate($request, [
+                'url' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+                ]);
+                   
+                $destionationPath = "images";
+                $name = $this->quickRandom();
+                $name .= ".png";
+                $input['url'] = $name;
+                $file->move($destionationPath,$name);
+
+            }
+
+
+        $category = $this->categoryRepository->update($input, $id);
 
         Flash::success('Category updated successfully.');
 
@@ -151,5 +191,12 @@ class categoryController extends AppBaseController
         Flash::success('Category deleted successfully.');
 
         return redirect(route('categories.index'));
+    }
+
+      public static function quickRandom($length = 16)
+    {
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
     }
 }

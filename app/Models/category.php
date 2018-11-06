@@ -27,7 +27,8 @@ class category extends Model
 
 
     public $fillable = [
-        'name'
+        'name',
+        'url',
     ];
 
     /**
@@ -37,7 +38,8 @@ class category extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'string'
+        'name' => 'string',
+              'url' => 'string',
     ];
 
     /**

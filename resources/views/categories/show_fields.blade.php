@@ -10,6 +10,15 @@
     <p>{!! $category->name !!}</p>
 </div>
 
+<!-- Url Field -->
+<div class="form-group">
+    {!! Form::label('Photo', 'Photo:') !!}
+    <br>
+    <img width='150px' width='150px' src= 'images/{!! $category->url !!}'>
+</div>
+
+
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}

@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>Name</th>
+               <th>Image</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -9,6 +10,7 @@
     @foreach($categories as $category)
         <tr>
             <td>{!! $category->name !!}</td>
+            <td><img width='80px' width='80px' src= 'images/{!! $category->url !!}'> </td>
             <td>
                 {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
