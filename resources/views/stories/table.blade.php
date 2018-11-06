@@ -2,9 +2,9 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th> Category</th>
+            <th> Menu</th>
             <th> Photo</th>
-            <th> Banner</th>
+         
             <th colspan="2">Action</th>
         </tr>
     </thead>
@@ -16,11 +16,10 @@
                 <td>{!! $story->category->name !!}</td>
 
             @else
-                <td>Sin categoria</td>
+                <td>Sin menu</td>
 
             @endif
             <td><img width='80px' width='80px' src= 'images/{!! $story->url !!}'> </td>
-            <td><img width='80px' width='80px' src= 'images/{!! $story->url_banner !!}'> </td>
 
             <td>
                 {!! Form::open(['route' => ['stories.destroy', $story->id], 'method' => 'delete']) !!}

@@ -2,7 +2,8 @@
     <thead>
         <tr>
             <th>Name</th>
-               <th>Image</th>
+               <th>Photo</th>
+                  <th> Banner</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -11,6 +12,8 @@
         <tr>
             <td>{!! $category->name !!}</td>
             <td><img width='80px' width='80px' src= 'images/{!! $category->url !!}'> </td>
+            
+            <td><img width='80px' width='80px' src= 'images/{!! $category->url_banner !!}'> </td>
             <td>
                 {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

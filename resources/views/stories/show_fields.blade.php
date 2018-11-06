@@ -12,7 +12,7 @@
 
 <!-- Id Category Field -->
 <div class="form-group">
-    {!! Form::label('Category', 'Category:') !!}
+    {!! Form::label('Category', 'Menu:') !!}
     <p>{!! $story->category->name !!}</p>
 </div>
 <!-- Url Field -->

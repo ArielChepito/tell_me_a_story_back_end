@@ -59,6 +59,9 @@ class categoryController extends AppBaseController
 
 
           $file = $request->file('url');
+                  $fileBanner = $request->file('url_banner');
+
+
         if($file != null)
         {
 
@@ -71,6 +74,21 @@ class categoryController extends AppBaseController
             $name .= ".png";
             $input['url'] = $name;
             $file->move($destionationPath,$name);
+
+        }
+        if($fileBanner  != null)
+        {
+           
+           $this->validate($request, [
+            'url_banner' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url_banner'] = $name;
+            $fileBanner->move($destionationPath,$name);
 
         }
 
@@ -146,6 +164,8 @@ class categoryController extends AppBaseController
         
 
        $file = $request->file('url');
+                       $fileBanner = $request->file('url_banner');
+
             if($file != null)
             {
 
@@ -160,6 +180,21 @@ class categoryController extends AppBaseController
                 $file->move($destionationPath,$name);
 
             }
+              if($fileBanner  != null)
+        {
+           
+           $this->validate($request, [
+            'url_banner' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url_banner'] = $name;
+            $fileBanner->move($destionationPath,$name);
+
+        }
 
 
         $category = $this->categoryRepository->update($input, $id);

@@ -7,7 +7,7 @@
 
 <!-- Id Category Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_category', 'Category:') !!}
+    {!! Form::label('id_category', 'Menu:') !!}
     {!! Form::select('id_category', $categories, null, ['class' => 'form-control', 'required' => '']) !!}
 </div>
 
@@ -19,11 +19,7 @@
     {!! Form::file('url', null, ['class' => 'form-control', ['required']]) !!}
 </div>
 
-<!-- Photo Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('url_banner', 'Banner:') !!}
-    {!! Form::file('url_banner', null, ['class' => 'form-control', ['required']]) !!}
-</div>
+
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

@@ -1,6 +1,6 @@
 <!-- Id Story Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_story', 'Id Story:') !!}
+    {!! Form::label('id_story', 'Sub-menu:') !!}
     {!! Form::select('id_story', $stories, null, ['class' => 'form-control']) !!}
 </div>
 
@@ -25,7 +25,7 @@
 
 <!-- Url Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('url', 'Audio:') !!}
+    {!! Form::label('audio_url', 'Audio:') !!}
     {!! Form::file('audio_url', null, ['class' => 'form-control']) !!}
 </div>
 

@@ -6,7 +6,7 @@
 
 <!-- Id Story Field -->
 <div class="form-group">
-    {!! Form::label('Story', 'Story') !!}
+    {!! Form::label('Story', 'Sub-menu') !!}
     <p>{!! $section->story->name !!}</p>
 </div>
 

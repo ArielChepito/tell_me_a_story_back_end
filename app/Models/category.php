@@ -28,7 +28,8 @@ class category extends Model
 
     public $fillable = [
         'name',
-        'url',
+        'url',        
+         'url_banner',
     ];
 
     /**
@@ -40,6 +41,8 @@ class category extends Model
         'id' => 'integer',
         'name' => 'string',
               'url' => 'string',
+              
+         'url_banner' => 'string'
     ];
 
     /**

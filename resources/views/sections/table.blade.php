@@ -1,7 +1,7 @@
 <table class="table table-responsive" id="sections-table">
     <thead>
         <tr>
-            <th>Story</th>
+            <th>Sub-menu</th>
         <th>Name</th>
         <th>Description</th>
         <th>Url</th>

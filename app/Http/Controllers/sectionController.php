@@ -64,6 +64,27 @@ class sectionController extends AppBaseController
 
 
         $file = $request->file('url');
+    $audio_file = $request->file('audio_url');
+
+
+        if($audio_file != null)
+        {
+
+
+              $this->validate($request, [
+            'audio_url' => 'mimes:mp3,wav', //only allow this type extension file.
+        ]);
+            
+            $destionationPath = "audio";
+            $name = $this->quickRandom();
+            $name .= ".mp3";
+            $input['audio_url'] = $name;
+            $audio_file->move($destionationPath,$name);
+
+        }
+
+
+
         if($file != null)
         {
 
@@ -80,21 +101,7 @@ class sectionController extends AppBaseController
         }
 
         
-        $file = $request->file('audio_url');
-        if($file != null)
-        {
-
-              $this->validate($request, [
-            'audio_url' => 'mimes:mp3,wav', //only allow this type extension file.
-        ]);
-            
-            $destionationPath = "audio";
-            $name = $this->quickRandom();
-            $name .= ".mp3";
-            $input['audio_url'] = $name;
-            $file->move($destionationPath,$name);
-
-        }
+      
 
         $section = $this->sectionRepository->create($input);
 
