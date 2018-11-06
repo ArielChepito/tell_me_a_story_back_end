@@ -88,7 +88,7 @@
 
     <!-- Main Footer -->
     <footer class="main-footer" style="max-height: 100px;text-align: center">
-        <strong>Copyright © 2016 <a href="https://youtu.be/9Yrt9qkBQ2Q" target="_blank">DAS Technologies</a>.</strong> All rights reserved.
+        <strong>Copyright © 2016 <a href="#" target="_blank">DAS Technologies</a>.</strong> All rights reserved.
     </footer>
 
 </div>

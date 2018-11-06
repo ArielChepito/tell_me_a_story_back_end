@@ -34,6 +34,7 @@ class story extends Model
         'state',
         'id_category',
         'url',
+         'url_banner',
         
     ];
 
@@ -47,7 +48,8 @@ class story extends Model
         'name' => 'string',
         'state' => 'integer',
         'id_category' => 'integer',
-        'url' => 'string'
+        'url' => 'string',
+         'url_banner' => 'string'
     ];
 
     /**

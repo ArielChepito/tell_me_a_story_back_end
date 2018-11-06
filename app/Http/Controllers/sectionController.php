@@ -66,6 +66,10 @@ class sectionController extends AppBaseController
         $file = $request->file('url');
         if($file != null)
         {
+
+              $this->validate($request, [
+            'url' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
            
             $destionationPath = "images";
             $name = $this->quickRandom();
@@ -79,6 +83,10 @@ class sectionController extends AppBaseController
         $file = $request->file('audio_url');
         if($file != null)
         {
+
+              $this->validate($request, [
+            'audio_url' => 'mimes:mp3,wav', //only allow this type extension file.
+        ]);
             
             $destionationPath = "audio";
             $name = $this->quickRandom();
@@ -156,7 +164,9 @@ class sectionController extends AppBaseController
         $file = $request->file('url');
         if($file != null)
         {
-            
+              $this->validate($request, [
+            'url' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
             $destionationPath = "images";
             $name = $this->quickRandom();
             $name .= ".png";
@@ -168,7 +178,9 @@ class sectionController extends AppBaseController
         $file = $request->file('audio_url');
         if($file != null)
         {
-            
+              $this->validate($request, [
+            'url' => 'mimes:mp3,wav', //only allow this type extension file.
+        ]);
             $destionationPath = "audio";
             $name = $this->quickRandom();
             $name .= ".mp3";

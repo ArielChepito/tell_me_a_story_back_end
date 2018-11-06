@@ -12,7 +12,13 @@
     <tbody>
     @foreach($sections as $section)
         <tr>
-            <td>{!! $section->story->name !!}</td>
+            @if(isset($section->story))
+                 <td>{!! $section->story->name !!}</td>
+
+            @else
+                <td>Sin Historia</td>
+
+            @endif
             <td>{!! $section->name !!}</td>
             <td>{!! $section->description !!}</td>
             <td><img width='80px' width='80px' src= 'images/{!! $section->url !!}'> </td>

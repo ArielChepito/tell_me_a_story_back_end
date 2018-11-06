@@ -13,6 +13,8 @@ use Response;
 use App\Models\category;
 use App\Models\story;
 use View;
+use Validator;
+
 
 class storyController extends AppBaseController
 {
@@ -41,7 +43,7 @@ class storyController extends AppBaseController
             $tmp->sections =$tmp->sections()->get();
         }
 
-
+       // return json_encode($stories);
         return view('stories.index')->with('stories', $stories);
     }
 
@@ -69,14 +71,39 @@ class storyController extends AppBaseController
     {
         $input = $request->all();
         $file = $request->file('url');
+        $fileBanner = $request->file('url_banner');
+
+
+
+
         if($file != null)
         {
            
+           $this->validate($request, [
+            'url' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+
             $destionationPath = "images";
             $name = $this->quickRandom();
             $name .= ".png";
             $input['url'] = $name;
             $file->move($destionationPath,$name);
+
+        }
+        if($fileBanner  != null)
+        {
+           
+           $this->validate($request, [
+            'url_banner' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url_banner'] = $name;
+            $fileBanner->move($destionationPath,$name);
 
         }
         $story = $this->storyRepository->create($input);
@@ -146,14 +173,37 @@ class storyController extends AppBaseController
         $input = $request->all();
 
         $file = $request->file('url');
+                $fileBanner = $request->file('url_banner');
+
         if($file != null)
+
         {
            
+             $this->validate($request, [
+            'url' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+             
             $destionationPath = "images";
             $name = $this->quickRandom();
             $name .= ".png";
             $input['url'] = $name;
             $file->move($destionationPath,$name);
+
+        }
+          if($fileBanner  != null)
+        {
+           
+           $this->validate($request, [
+            'url_banner' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+
+            $destionationPath = "images";
+            $name = $this->quickRandom();
+            $name .= ".png";
+            $input['url_banner'] = $name;
+            $fileBanner->move($destionationPath,$name);
 
         }
         if (empty($story)) {

@@ -95,7 +95,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> I agree to the <a href="https://www.youtube.com/watch?v=9Yrt9qkBQ2Q">terms</a>
+                            <input type="checkbox"> I agree to the <a href="#">terms</a>
                         </label>
                     </div>
                 </div>

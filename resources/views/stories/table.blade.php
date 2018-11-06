@@ -4,6 +4,7 @@
             <th>Name</th>
             <th> Category</th>
             <th> Photo</th>
+            <th> Banner</th>
             <th colspan="2">Action</th>
         </tr>
     </thead>
@@ -11,8 +12,15 @@
     @foreach($stories as $story)
         <tr>
             <td>{!! $story->name !!}</td>
-            <td>{!! $story->category->name !!}</td>
+            @if(isset($story->category))
+                <td>{!! $story->category->name !!}</td>
+
+            @else
+                <td>Sin categoria</td>
+
+            @endif
             <td><img width='80px' width='80px' src= 'images/{!! $story->url !!}'> </td>
+            <td><img width='80px' width='80px' src= 'images/{!! $story->url_banner !!}'> </td>
 
             <td>
                 {!! Form::open(['route' => ['stories.destroy', $story->id], 'method' => 'delete']) !!}

@@ -1,14 +1,14 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    {!! Form::text('name', null, ['class' => 'form-control', 'required' => '']) !!}
 </div>
 
 
 <!-- Id Category Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_category', 'Id Category:') !!}
-    {!! Form::select('id_category', $categories, null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_category', 'Category:') !!}
+    {!! Form::select('id_category', $categories, null, ['class' => 'form-control', 'required' => '']) !!}
 </div>
 
 
@@ -16,7 +16,13 @@
 <!-- Photo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('url', 'Photo:') !!}
-    {!! Form::file('url', null, ['class' => 'form-control']) !!}
+    {!! Form::file('url', null, ['class' => 'form-control', ['required']]) !!}
+</div>
+
+<!-- Photo Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('url_banner', 'Banner:') !!}
+    {!! Form::file('url_banner', null, ['class' => 'form-control', ['required']]) !!}
 </div>
 
 <!-- Submit Field -->
