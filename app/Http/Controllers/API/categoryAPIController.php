@@ -40,6 +40,18 @@ class categoryAPIController extends AppBaseController
         $this->categoryRepository->pushCriteria(new LimitOffsetCriteria($request));
         $categories = $this->categoryRepository->all();
 
+          foreach($categories as $tmp){
+            $tmp->story=$tmp->stories()->get();
+             foreach($tmp->story as $pmt){
+            $pmt->sections=$pmt->sections()->get();
+
+        }
+
+        }
+
+        
+
+
         return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
     }
 

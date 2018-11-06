@@ -54,6 +54,6 @@ class category extends Model
      **/
     public function stories()
     {
-        return $this->hasMany(\App\Models\Story::class);
+        return $this->hasMany(\App\Models\Story::class,'id_category','id');
     }
 }
