@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 13, 2018 at 04:03 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-11-2018 a las 21:43:01
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `better_write`
+-- Base de datos: `better_write`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Estructura de tabla para la tabla `category`
 --
 
 CREATE TABLE `category` (
@@ -37,7 +37,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `category`
+-- Volcado de datos para la tabla `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -69,7 +69,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -79,7 +79,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -89,7 +89,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Volcado de datos para la tabla `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -98,7 +98,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `section`
+-- Estructura de tabla para la tabla `section`
 --
 
 CREATE TABLE `section` (
@@ -114,7 +114,7 @@ CREATE TABLE `section` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `section`
+-- Volcado de datos para la tabla `section`
 --
 
 INSERT INTO `section` (`id`, `id_story`, `name`, `description`, `url`, `audio_url`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -169,7 +169,7 @@ INSERT INTO `section` (`id`, `id_story`, `name`, `description`, `url`, `audio_ur
 -- --------------------------------------------------------
 
 --
--- Table structure for table `story`
+-- Estructura de tabla para la tabla `story`
 --
 
 CREATE TABLE `story` (
@@ -178,6 +178,7 @@ CREATE TABLE `story` (
   `state` int(1) DEFAULT '1',
   `url` varchar(4000) DEFAULT NULL,
   `url_banner` varchar(5000) DEFAULT NULL,
+  `id_usuario` varchar(100) DEFAULT '66',
   `id_category` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -185,46 +186,46 @@ CREATE TABLE `story` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `story`
+-- Volcado de datos para la tabla `story`
 --
 
-INSERT INTO `story` (`id`, `name`, `state`, `url`, `url_banner`, `id_category`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'La carreta chillona', 1, NULL, NULL, 1, '2018-10-14 22:13:59', '2018-10-15 04:13:59', '2018-10-15 04:13:59'),
-(2, 'sddsds', 1, NULL, NULL, 2, '2018-10-14 21:03:34', '2018-10-15 03:03:34', '2018-10-15 03:03:34'),
-(3, 'sasaas', 1, NULL, NULL, 2, '2018-10-14 21:03:28', '2018-10-15 03:03:28', '2018-10-15 03:03:28'),
-(4, 'wqqwwq', 1, NULL, NULL, 2, '2018-10-14 21:03:25', '2018-10-15 03:03:25', '2018-10-15 03:03:25'),
-(5, 'wwwwwwwww', 1, NULL, NULL, 3, '2018-10-14 21:03:23', '2018-10-15 03:03:23', '2018-10-15 03:03:23'),
-(6, 'historia', 1, '97PgBAev2RflkqVP.png', NULL, 5, '2018-10-22 22:04:40', '2018-10-22 22:04:40', '2018-10-22 22:04:40'),
-(7, 'gg', 1, NULL, NULL, 2, '2018-10-14 23:28:35', '2018-10-15 05:28:35', '2018-10-15 05:28:35'),
-(8, 'dddddd', 1, 'vHuaF4gmFbShunox.png', NULL, 2, '2018-10-16 14:36:46', '2018-10-16 14:36:46', '2018-10-16 14:36:46'),
-(9, 'El Capitan y los piratas', 1, 'cmMwJNCTe5hc9GGo.png', NULL, 6, '2018-10-22 22:04:32', '2018-10-22 22:04:32', '2018-10-22 22:04:32'),
-(10, 'ee', 1, NULL, NULL, 4, '2018-10-16 02:02:10', '2018-10-16 02:02:10', '2018-10-16 02:02:10'),
-(11, 'Otra historia', 1, 'FrK3VNOJHQxrfobR.png', NULL, 4, '2018-10-22 22:04:23', '2018-10-22 22:04:23', '2018-10-22 22:04:23'),
-(12, 'ojih', 1, 'udvCl9I6tWgQWe2h.png', NULL, 5, '2018-10-16 14:37:01', '2018-10-16 14:37:01', '2018-10-16 14:37:01'),
-(13, 'El Capitan Bravo', 1, 'HJjTMO4cyy5Z07xS.png', NULL, 9, '2018-10-22 21:45:54', '2018-10-22 21:45:54', '2018-10-22 21:45:54'),
-(14, 'sddds', 1, NULL, NULL, 4, '2018-10-17 18:51:01', '2018-10-17 18:51:01', '2018-10-17 18:51:01'),
-(15, 'ggg', 1, NULL, NULL, 2, '2018-10-17 18:52:16', '2018-10-17 18:52:16', '2018-10-17 18:52:16'),
-(16, '666', 1, 'X1zRhu0tmFFxYJCk.png', NULL, 2, '2018-10-18 04:20:23', '2018-10-18 04:20:23', '2018-10-18 04:20:23'),
-(17, 'El borrachito', 1, '0joXBSqG6OXj4kef.png', NULL, 9, '2018-10-22 22:04:04', '2018-10-22 22:04:04', '2018-10-22 22:04:04'),
-(18, 'Vocales', 1, 'Yipsgj94CRdQ5jtT.png', 'cYilhDlzFvDyC1aK.png', 2, '2018-11-08 21:35:11', '2018-11-08 21:35:11', '2018-11-08 21:35:11'),
-(19, 'Animales', 1, '1SK7JMjaICCw65zr.png', '5DbB0ofg2YqMr8LD.png', 2, '2018-11-08 21:35:09', '2018-11-08 21:35:09', '2018-11-08 21:35:09'),
-(20, 'Vestimenta', 1, 'Bn98lwu0v239aZFq.png', 'DrvPQt920ZZk9OM1.png', 2, '2018-11-08 21:35:06', '2018-11-08 21:35:06', '2018-11-08 21:35:06'),
-(21, 'Espejos', 1, 'H0vCrsCvy5doc2VF.png', NULL, 11, '2018-11-08 22:24:27', '2018-11-08 22:24:27', NULL),
-(22, 'Cabañas', 1, 'nMpLuxb26NF2XD6v.png', NULL, 11, '2018-11-08 23:32:26', '2018-11-08 23:32:26', NULL),
-(23, 'El bucle', 1, 'eYH0AQlKDQqevKuB.png', NULL, 14, '2018-11-08 23:32:55', '2018-11-08 23:32:55', NULL),
-(24, 'Una noche oscura', 1, 'IBfd7N52KX1eES2c.png', NULL, 12, '2018-11-08 23:33:24', '2018-11-08 23:33:24', NULL),
-(25, 'Fragmentado', 1, '9lJB28TjRfFqQX5V.png', NULL, 11, '2018-11-08 23:33:45', '2018-11-08 23:33:45', NULL),
-(26, 'Cultura & Arte', 1, NULL, NULL, 11, '2018-11-09 05:44:54', '2018-11-09 05:44:54', NULL),
-(27, 'test', 1, NULL, NULL, 11, '2018-11-12 21:32:50', '2018-11-12 21:32:50', NULL),
-(28, 'test', 1, NULL, NULL, 11, '2018-11-12 21:35:04', '2018-11-12 21:35:04', NULL),
-(29, 'test', 3, NULL, NULL, 11, '2018-11-12 21:35:35', '2018-11-12 21:35:35', NULL),
-(38, 'HistoriaPrro', 3, NULL, NULL, 3, '2018-11-13 03:23:25', '2018-11-13 03:23:25', '2018-11-13 03:23:25'),
-(39, 'Esta', 3, NULL, NULL, 14, '2018-11-13 04:27:41', '2018-11-13 04:27:41', NULL);
+INSERT INTO `story` (`id`, `name`, `state`, `url`, `url_banner`, `id_usuario`, `id_category`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'La carreta chillona', 1, NULL, NULL, '66', 1, '2018-10-14 22:13:59', '2018-10-15 04:13:59', '2018-10-15 04:13:59'),
+(2, 'sddsds', 1, NULL, NULL, '66', 2, '2018-10-14 21:03:34', '2018-10-15 03:03:34', '2018-10-15 03:03:34'),
+(3, 'sasaas', 1, NULL, NULL, '66', 2, '2018-10-14 21:03:28', '2018-10-15 03:03:28', '2018-10-15 03:03:28'),
+(4, 'wqqwwq', 1, NULL, NULL, '66', 2, '2018-10-14 21:03:25', '2018-10-15 03:03:25', '2018-10-15 03:03:25'),
+(5, 'wwwwwwwww', 1, NULL, NULL, '66', 3, '2018-10-14 21:03:23', '2018-10-15 03:03:23', '2018-10-15 03:03:23'),
+(6, 'historia', 1, '97PgBAev2RflkqVP.png', NULL, '66', 5, '2018-10-22 22:04:40', '2018-10-22 22:04:40', '2018-10-22 22:04:40'),
+(7, 'gg', 1, NULL, NULL, '66', 2, '2018-10-14 23:28:35', '2018-10-15 05:28:35', '2018-10-15 05:28:35'),
+(8, 'dddddd', 1, 'vHuaF4gmFbShunox.png', NULL, '66', 2, '2018-10-16 14:36:46', '2018-10-16 14:36:46', '2018-10-16 14:36:46'),
+(9, 'El Capitan y los piratas', 1, 'cmMwJNCTe5hc9GGo.png', NULL, '66', 6, '2018-10-22 22:04:32', '2018-10-22 22:04:32', '2018-10-22 22:04:32'),
+(10, 'ee', 1, NULL, NULL, '66', 4, '2018-10-16 02:02:10', '2018-10-16 02:02:10', '2018-10-16 02:02:10'),
+(11, 'Otra historia', 1, 'FrK3VNOJHQxrfobR.png', NULL, '66', 4, '2018-10-22 22:04:23', '2018-10-22 22:04:23', '2018-10-22 22:04:23'),
+(12, 'ojih', 1, 'udvCl9I6tWgQWe2h.png', NULL, '66', 5, '2018-10-16 14:37:01', '2018-10-16 14:37:01', '2018-10-16 14:37:01'),
+(13, 'El Capitan Bravo', 1, 'HJjTMO4cyy5Z07xS.png', NULL, '66', 9, '2018-10-22 21:45:54', '2018-10-22 21:45:54', '2018-10-22 21:45:54'),
+(14, 'sddds', 1, NULL, NULL, '66', 4, '2018-10-17 18:51:01', '2018-10-17 18:51:01', '2018-10-17 18:51:01'),
+(15, 'ggg', 1, NULL, NULL, '66', 2, '2018-10-17 18:52:16', '2018-10-17 18:52:16', '2018-10-17 18:52:16'),
+(16, '666', 1, 'X1zRhu0tmFFxYJCk.png', NULL, '66', 2, '2018-10-18 04:20:23', '2018-10-18 04:20:23', '2018-10-18 04:20:23'),
+(17, 'El borrachito', 1, '0joXBSqG6OXj4kef.png', NULL, '66', 9, '2018-10-22 22:04:04', '2018-10-22 22:04:04', '2018-10-22 22:04:04'),
+(18, 'Vocales', 1, 'Yipsgj94CRdQ5jtT.png', 'cYilhDlzFvDyC1aK.png', '66', 2, '2018-11-08 21:35:11', '2018-11-08 21:35:11', '2018-11-08 21:35:11'),
+(19, 'Animales', 1, '1SK7JMjaICCw65zr.png', '5DbB0ofg2YqMr8LD.png', '66', 2, '2018-11-08 21:35:09', '2018-11-08 21:35:09', '2018-11-08 21:35:09'),
+(20, 'Vestimenta', 1, 'Bn98lwu0v239aZFq.png', 'DrvPQt920ZZk9OM1.png', '66', 2, '2018-11-08 21:35:06', '2018-11-08 21:35:06', '2018-11-08 21:35:06'),
+(21, 'Espejos', 1, 'H0vCrsCvy5doc2VF.png', NULL, '66', 11, '2018-11-08 22:24:27', '2018-11-08 22:24:27', NULL),
+(22, 'Cabañas', 1, 'nMpLuxb26NF2XD6v.png', NULL, '66', 11, '2018-11-08 23:32:26', '2018-11-08 23:32:26', NULL),
+(23, 'El bucle', 1, 'eYH0AQlKDQqevKuB.png', NULL, '66', 14, '2018-11-08 23:32:55', '2018-11-08 23:32:55', NULL),
+(24, 'Una noche oscura', 1, 'IBfd7N52KX1eES2c.png', NULL, '66', 12, '2018-11-08 23:33:24', '2018-11-08 23:33:24', NULL),
+(25, 'Fragmentado', 1, '9lJB28TjRfFqQX5V.png', NULL, '66', 11, '2018-11-08 23:33:45', '2018-11-08 23:33:45', NULL),
+(26, 'Cultura & Arte', 1, NULL, NULL, '66', 11, '2018-11-13 18:55:15', '2018-11-14 00:55:15', '2018-11-14 00:55:15'),
+(27, 'test', 1, NULL, NULL, '66', 11, '2018-11-13 18:55:06', '2018-11-14 00:55:06', '2018-11-14 00:55:06'),
+(28, 'test', 1, NULL, NULL, '66', 11, '2018-11-13 18:55:09', '2018-11-14 00:55:09', '2018-11-14 00:55:09'),
+(29, 'test', 3, NULL, NULL, '66', 11, '2018-11-13 18:55:17', '2018-11-14 00:55:17', '2018-11-14 00:55:17'),
+(38, 'HistoriaPrro', 3, NULL, NULL, '66', 3, '2018-11-13 03:23:25', '2018-11-13 03:23:25', '2018-11-13 03:23:25'),
+(39, 'Esta', 3, NULL, NULL, '66', 14, '2018-11-13 18:55:19', '2018-11-14 00:55:19', '2018-11-14 00:55:19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -238,7 +239,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -249,98 +250,176 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (5, 'Miguel Orellana', 'nyumaiku@gmail.com', '$2y$10$ThpWQ2UngddC1X6Ub4LqZukCtGZR4T4t7XXax/COZ2LP5fbzJX3Hm', NULL, '2018-10-16 14:35:52', '2018-10-16 14:35:52'),
 (6, 'diego', 'diego@gmail.com', '$2y$10$uEEENEhOcKa3TeOQkJdWAOGHSsYbV1OmNy/SjEDOV9oZqrKGhr9VO', 'And6KFRLgNYO9ZaHEA92aNF0Dez1wVmV2HsMwBbWrBeWLdgHeCp0dflvSkac', '2018-11-08 19:06:02', '2018-11-08 19:06:02');
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` varchar(100) NOT NULL,
+  `first_name` varchar(4000) DEFAULT NULL,
+  `last_name` varchar(4000) DEFAULT NULL,
+  `email` varchar(4000) DEFAULT NULL,
+  `file` varchar(4000) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `first_name`, `last_name`, `email`, `file`, `created_at`, `updated_at`, `deleted_at`) VALUES
+('1', 'ewdsw', 'ewdsw', 'dfsfdef@mail.com', 'asasaas', '2018-11-14 02:18:05', '2018-11-14 02:18:05', NULL),
+('66', 'Diego', 'Ragnar', 'dfsfdef@mail.com', 'asasaas', '2018-11-14 02:18:25', '2018-11-14 02:24:58', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario_story`
+--
+
+CREATE TABLE `usuario_story` (
+  `id` int(11) NOT NULL,
+  `id_usuario` varchar(100) DEFAULT NULL,
+  `id_story` int(11) DEFAULT NULL,
+  `comentario` varchar(8000) DEFAULT NULL,
+  `state` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario_story`
+--
+
+INSERT INTO `usuario_story` (`id`, `id_usuario`, `id_story`, `comentario`, `state`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '66', 1, 'aaaaaa', 3, '2018-11-14 02:23:23', '2018-11-14 02:23:23', NULL);
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `category`
+-- Indices de la tabla `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indices de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indices de la tabla `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `section`
+-- Indices de la tabla `section`
 --
 ALTER TABLE `section`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_story` (`id_story`);
 
 --
--- Indexes for table `story`
+-- Indices de la tabla `story`
 --
 ALTER TABLE `story`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_category` (`id_category`);
+  ADD KEY `id_category` (`id_category`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario_story`
+--
+ALTER TABLE `usuario_story`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_story` (`id_story`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `section`
+-- AUTO_INCREMENT de la tabla `section`
 --
 ALTER TABLE `section`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `story`
+-- AUTO_INCREMENT de la tabla `story`
 --
 ALTER TABLE `story`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT de la tabla `usuario_story`
+--
+ALTER TABLE `usuario_story`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `section`
+-- Filtros para la tabla `section`
 --
 ALTER TABLE `section`
   ADD CONSTRAINT `section_ibfk_1` FOREIGN KEY (`id_story`) REFERENCES `story` (`id`);
 
 --
--- Constraints for table `story`
+-- Filtros para la tabla `story`
 --
 ALTER TABLE `story`
-  ADD CONSTRAINT `story_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`);
+  ADD CONSTRAINT `story_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`),
+  ADD CONSTRAINT `story_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
+
+--
+-- Filtros para la tabla `usuario_story`
+--
+ALTER TABLE `usuario_story`
+  ADD CONSTRAINT `usuario_story_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuario_story_ibfk_2` FOREIGN KEY (`id_story`) REFERENCES `story` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
