@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\category;
+use App\Models\usuario;
 use App\Models\story;
 use View;
 use Validator;
@@ -55,9 +56,9 @@ class storyController extends AppBaseController
     public function create()
     {
         $categories = category::pluck('name','id');
-        
+        $usuarios = usuario::pluck('first_name','id');
         //return view('stories.create',compact('categories'));
-        return View::make('stories.create')->with(compact('categories'));
+        return View::make('stories.create')->with(compact('categories','usuarios'));
     }
 
     /**

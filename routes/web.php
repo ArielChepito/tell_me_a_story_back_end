@@ -25,3 +25,7 @@ Route::resource('stories', 'storyController');
 Route::resource('categories', 'categoryController');
 
 Route::resource('sections', 'sectionController');
+
+Route::resource('usuarios', 'usuarioController');
+
+Route::resource('usuarioStories', 'usuario_storyController');

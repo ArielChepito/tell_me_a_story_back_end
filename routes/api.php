@@ -23,3 +23,7 @@ Route::resource('stories', 'storyAPIController');
 Route::resource('categories', 'categoryAPIController');
 
 Route::resource('sections', 'sectionAPIController');
+
+Route::resource('usuarios', 'usuarioAPIController');
+
+Route::resource('usuario_stories', 'usuario_storyAPIController');

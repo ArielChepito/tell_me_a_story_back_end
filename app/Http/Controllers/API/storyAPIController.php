@@ -42,6 +42,8 @@ class storyAPIController extends AppBaseController
 
         foreach($stories as $tmp){
             $tmp->category=$tmp->category()->first();
+            $tmp->autor=$tmp->usuario()->first();
+
             $tmp->sections =$tmp->sections()->get();
         }
 

@@ -35,6 +35,7 @@ class story extends Model
         'id_category',
         'url',
          'url_banner',
+         'id_usuario'
         
     ];
 
@@ -48,6 +49,7 @@ class story extends Model
         'name' => 'string',
         'state' => 'integer',
         'id_category' => 'integer',
+        'id_usuario' => 'string',
         'url' => 'string',
          'url_banner' => 'string'
     ];
@@ -68,6 +70,11 @@ class story extends Model
     {
         return $this->belongsTo(\App\Models\Category::class,'id_category','id');
     }
+    public function usuario()
+    {
+        return $this->belongsTo(\App\Models\Usuario::class,'id_usuario','id');
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

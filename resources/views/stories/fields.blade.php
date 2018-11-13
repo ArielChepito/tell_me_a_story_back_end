@@ -11,6 +11,11 @@
     {!! Form::select('id_category', $categories, null, ['class' => 'form-control', 'required' => '']) !!}
 </div>
 
+<!-- Id Category Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('id_usuario', 'User:') !!}
+    {!! Form::select('id_usuario', $usuarios, null, ['class' => 'form-control', 'required' => '']) !!}
+</div>
 
 
 <!-- Photo Field -->
