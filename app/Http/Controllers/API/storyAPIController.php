@@ -41,10 +41,13 @@ class storyAPIController extends AppBaseController
         $stories = $this->storyRepository->all();
 
         foreach($stories as $tmp){
+            $tmp->likes =$tmp->calificacion()->count();
             $tmp->category=$tmp->category()->first();
+          
             $tmp->autor=$tmp->usuario()->first();
 
             $tmp->sections =$tmp->sections()->get();
+        
         }
 
 

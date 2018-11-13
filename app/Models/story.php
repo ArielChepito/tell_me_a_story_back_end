@@ -74,7 +74,10 @@ class story extends Model
     {
         return $this->belongsTo(\App\Models\Usuario::class,'id_usuario','id');
     }
-
+    public function calificacion()
+    {
+        return $this->hasMany(\App\Models\Usuario_story::class,'id_story','id');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
